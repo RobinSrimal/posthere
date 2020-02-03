@@ -1,1 +1,1 @@
-web: gunicorn posthere:APP -t 120
+web: gunicorn posthere:app -t 120

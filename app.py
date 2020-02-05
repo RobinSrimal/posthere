@@ -36,9 +36,9 @@ def make_predict():
     # use the prediction as an index for the subreddit_list
     reddit_prediction = subreddit_list[prediction[0][0]]
     # put the string into a list to make jsonify happy
-    reddit_prediction_in_list =[reddit_prediction]
+    # reddit_prediction_in_list =[reddit_prediction]
 
-    return jsonify(title = reddit_prediction_in_list)
+    return {"title": reddit_prediction}
 
 
 

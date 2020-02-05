@@ -27,7 +27,8 @@ def hello_world():
 def make_predict():
 
     # read in data
-    text = request.get_json(force=True)
+    lines = request.get_json(force=True)
+    text = lines["body"]
     # transform input string to vector
     vectorized_text = vectorizer.transform([text])
     # use kneighbor to predict fitting subreddit for input string

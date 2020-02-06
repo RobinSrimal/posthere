@@ -14,8 +14,8 @@ pandas = "*"
 joblib = "*"
 psycopg2 = "*"
 flask-sqlalchemy = "*"
-decouple = "*"
-dotenv = "*"
+python-decouple = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"

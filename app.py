@@ -4,9 +4,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 import joblib
 from flask_sqlalchemy import SQLAlchemy
+import psycopg2
 import os
+from dotenv import load_dotenv
+from decouple import config
 
-
+load_dotenv()
 
 
 app = Flask(__name__) 
@@ -20,10 +23,12 @@ df = pd.read_csv("post_here_subreddits.csv")
 subreddit_list = df.subreddit.values.tolist()
 
 
-APP = Flask(__name__) 
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-DB = SQLAlchemy(APP)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+DB = SQLAlchemy(app)
+DB.init_app(app)
+
 
 
 

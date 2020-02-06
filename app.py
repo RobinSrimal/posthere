@@ -22,6 +22,7 @@ subreddit_list = df.subreddit.values.tolist()
 
 APP = Flask(__name__) 
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 DB = SQLAlchemy(APP)
 
 
